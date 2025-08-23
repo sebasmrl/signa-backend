@@ -8,11 +8,9 @@ app = FastAPI()
 
 
 load_dotenv()
-frontend_domain = os.getenv("ALLOW_DOMAIN") 
+frontend_domains = os.getenv("ALLOW_DOMAINS", "")
+origins = frontend_domains.split(",") if frontend_domains else ["*"]
 
-origins = [
-    frontend_domain,
-]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,            

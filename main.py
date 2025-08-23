@@ -1,8 +1,6 @@
 from fastapi import FastAPI
+from routes.brand import brand
 
 app = FastAPI()
 
-
-@app.get()
-def hello_world():
-    return 'hello world'
+app.include_router(brand)

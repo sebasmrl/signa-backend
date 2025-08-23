@@ -23,3 +23,7 @@ app.add_middleware(
 
 
 app.include_router(brand)
+
+@app.get('/health')
+def healt():
+    return 'ok'
